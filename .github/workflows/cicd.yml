@@ -1,0 +1,29 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      #   - name: Build
+      #     run: npm run build
+
+      - name: Test
+        run: npm test -- --coverage
+
+      - name: Deploy to production
+        if: github.ref == 'refs/heads/main' # Only deploy on main branch
+        run: |
+          # Here you would put your deployment script/command
+          # Example: Deploy to AWS S3, Firebase Hosting, Netlify, etc.
