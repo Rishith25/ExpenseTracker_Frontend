@@ -2,6 +2,7 @@ import { render, fireEvent, waitFor } from "@testing-library/react";
 import SignupForm from "../pages/signup/SignupForm";
 import axios from "axios";
 import { BrowserRouter as Router } from "react-router-dom";
+import { API_ENDPOINT } from "../config/constants";
 
 // Mock axios post function
 jest.mock("axios");
@@ -52,16 +53,13 @@ describe("SignupForm", () => {
 
     // Wait for axios to be called with the correct data
     await waitFor(() => {
-      expect(axios.post).toHaveBeenCalledWith(
-        "http://localhost:8000/api/signup/",
-        {
-          email: "test@example.com",
-          password: "password123",
-          first_name: "John",
-          last_name: "Doe",
-          phone_number: "1234567890",
-        }
-      );
+      expect(axios.post).toHaveBeenCalledWith(`${API_ENDPOINT}/signup/`, {
+        email: "test@example.com",
+        password: "password123",
+        first_name: "John",
+        last_name: "Doe",
+        phone_number: "1234567890",
+      });
     });
 
     // Check if navigation to the dashboard page occurred after successful sign-up
