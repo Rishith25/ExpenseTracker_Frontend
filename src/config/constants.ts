@@ -1,1 +1,1 @@
-export const API_ENDPOINT = process.env.VITE_API_ENDPOINT;
+export const API_ENDPOINT = `https://expensetracker-backend-fsnt.onrender.com/api`;
