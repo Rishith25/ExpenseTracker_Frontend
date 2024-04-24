@@ -116,6 +116,7 @@ const BalanceDetails = () => {
                   width="36px"
                   height="36px"
                   viewBox="0 0 260 250"
+                  className="text-white font-bold"
                 >
                   <path
                     fill="currentColor"

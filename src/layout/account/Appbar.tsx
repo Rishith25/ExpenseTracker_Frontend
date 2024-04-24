@@ -192,6 +192,7 @@ export default function Appbar() {
                 )}
               </Disclosure.Button>
             </div>
+
             <div className={`lg:flex ${open ? "hidden" : "block"}`}>
               <div className="w-full lg:w-56 border-r bg-gray-100 dark:bg-gray-100">
                 <div className="flex h-[60px] items-center border-b px-6">

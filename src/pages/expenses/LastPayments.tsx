@@ -69,7 +69,7 @@ const LastPaymentDetails = () => {
   return (
     <div className="max-w-3xl mx-auto mt-8 shadow-md rounded-2xl overflow-hidden">
       <div className="overflow-x-auto">
-        <h2 className="text-lg font-bold bg-blue-500 text-white py-4 px-6 rounded-t-2xl">
+        <h2 className="text-lg font-bold bg-blue-500 text-white py-2 px-6 rounded-t-2xl">
           {t("Last Payments")}
         </h2>
         <table className="table-auto w-full border-collapse rounded-2xl bg-white">
@@ -83,7 +83,7 @@ const LastPaymentDetails = () => {
                 <td className="px-4 py-3 text-gray-700">
                   {formatDateForPicker(expense.timestamp, i18n)}
                 </td>
-                <td className="px-4 py-3 text-gray-700">${expense.amount}</td>
+                <td className="px-4 py-3 text-gray-700">₹ {expense.amount}</td>
                 <td className="px-4 py-3 text-gray-700">{expense.category}</td>
                 <td className="px-4 py-3 text-gray-700">
                   {expense.attachment ? (

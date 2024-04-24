@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import LineChart from "../../components/LineChart";
+import BarChart from "../../components/BarChart";
+import PieChart from "../../components/PieChart";
 import {
   useAnalyticsDispatch,
   useAnalyticsState,
@@ -10,9 +10,11 @@ import { fetchAnalytics } from "../../context/analytics/actions";
 import { useAccountsDispatch } from "../../context/accounts/context";
 import { fetchAccounts } from "../../context/accounts/actions";
 import { useTranslation } from "react-i18next";
+import DoughnutChart from "../../components/DoughnutChart";
 
 const AnalyticsDetails = () => {
-  const analyticsState: any = useAnalyticsState();
+  const [selectedChart, setSelectedChart] = useState("line");
+  const analyticsState = useAnalyticsState();
   const analyticsDispatch = useAnalyticsDispatch();
   const { t } = useTranslation();
 
@@ -33,8 +35,8 @@ const AnalyticsDetails = () => {
   }
 
   // Extracting month labels from income and expense data
-  const incomeMonths = incomes.map((data: { month: string }) => data.month);
-  const expenseMonths = expenses.map((data: { month: string }) => data.month);
+  const incomeMonths = incomes.map((data) => data.month);
+  const expenseMonths = expenses.map((data) => data.month);
 
   // Merging unique month labels from both income and expense data
   const allMonths = Array.from(new Set([...incomeMonths, ...expenseMonths]));
@@ -48,16 +50,12 @@ const AnalyticsDetails = () => {
 
   // Aligning income and expense data based on month labels
   const incomeData = sortedMonths.map((month) => {
-    const income = incomes.find(
-      (data: { month: string }) => data.month === month
-    );
+    const income = incomes.find((data) => data.month === month);
     return income ? income.total_amount : 0;
   });
 
   const expenseData = sortedMonths.map((month) => {
-    const expense = expenses.find(
-      (data: { month: string }) => data.month === month
-    );
+    const expense = expenses.find((data) => data.month === month);
     return expense ? expense.total_amount : 0;
   });
 
@@ -86,8 +84,38 @@ const AnalyticsDetails = () => {
   };
 
   return (
-    <div className="w-full rounded-2xl">
-      <LineChart chartData={userData} />
+    <div className="w-full rounded-lg p-4">
+      <div className="flex justify-center items-center mb-2">
+        <button
+          className={`mr-2 px-3 py-1 rounded ${
+            selectedChart === "line" ? "bg-blue-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setSelectedChart("line")}
+        >
+          Line Chart
+        </button>
+        <button
+          className={`px-3 py-1 rounded ${
+            selectedChart === "bar" ? "bg-blue-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setSelectedChart("bar")}
+        >
+          Bar Chart
+        </button>
+        {/* <button
+          className={`ml-2 px-3 py-1 rounded ${
+            selectedChart === "pie" ? "bg-blue-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setSelectedChart("pie")}
+        >
+          Pie Chart
+        </button> */}
+      </div>
+      <div className="mx-auto">
+        {selectedChart === "line" && <LineChart chartData={userData} />}
+        {selectedChart === "bar" && <BarChart chartData={userData} />}
+        {/* {selectedChart === "pie" && <PieChart chartData={userData} />} */}
+      </div>
     </div>
   );
 };

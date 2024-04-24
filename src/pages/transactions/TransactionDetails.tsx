@@ -14,6 +14,11 @@ import { useTranslation } from "react-i18next";
 const formatDateForPicker = (isoDate: string, i18n: any) => {
   const dateObj = new Date(isoDate);
 
+  if (isNaN(dateObj.getTime())) {
+    // If it's an invalid date, return an empty string or handle the error accordingly
+    return "";
+  }
+
   let localeObject;
   switch (i18n.language) {
     case "es":
