@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "../../index.css";
-// import "./balance.css";
 import accountbalance from "../../assets/dashboard/wallet.png";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { API_ENDPOINT } from "../../config/constants";
 
 const BalanceDetails = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -31,10 +31,7 @@ const BalanceDetails = () => {
             Authorization: `Token ${token}`,
           },
         };
-        const response = await axios.get(
-          "http://localhost:8000/api/account/",
-          config
-        );
+        const response = await axios.get(`${API_ENDPOINT}/account/`, config);
         setAccounts(response.data);
       } catch (error) {
         console.error("Error fetching accounts:", error);

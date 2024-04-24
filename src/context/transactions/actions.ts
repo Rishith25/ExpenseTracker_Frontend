@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
+import { API_ENDPOINT } from "../../config/constants";
 
 export const fetchTransactions = async (dispatch: any) => {
   const token = localStorage.getItem("authToken") ?? "";
@@ -7,14 +8,11 @@ export const fetchTransactions = async (dispatch: any) => {
   try {
     dispatch({ type: "FETCH_TRANSACTIONS_REQUEST" });
 
-    const response = await axios.get(
-      `http://localhost:8000/api/account/transaction`,
-      {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      }
-    );
+    const response = await axios.get(`${API_ENDPOINT}/transaction`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
 
     const data = response.data;
     data.sort((a: any, b: any) => {

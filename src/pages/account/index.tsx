@@ -1,11 +1,11 @@
 import React from "react";
 import AccountDetails from "./AccountDetails";
 
-const Analytics: React.FC = () => {
+const Account: React.FC = () => {
   return (
     <>
       <AccountDetails />
     </>
   );
 };
-export default Analytics;
+export default Account;

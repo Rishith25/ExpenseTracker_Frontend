@@ -6,8 +6,8 @@ import {
   useAccountsState,
 } from "../../context/accounts/context";
 import { fetchAccounts } from "../../context/accounts/actions";
-import AccountCreate from "./AccountCreate";
 import { useTranslation } from "react-i18next";
+const AccountCreate = React.lazy(() => import("./AccountCreate"));
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const AccountDetails: React.FC = () => {

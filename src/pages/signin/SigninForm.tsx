@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Logo from "../../assets/images/signin.png";
+import { API_ENDPOINT } from "../../config/constants";
 
 const SigninForm: React.FC = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -13,7 +14,7 @@ const SigninForm: React.FC = () => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:8000/api/signin/", {
+      .post(`${API_ENDPOINT}/signin/`, {
         email: userEmail,
         password: userPassword,
       })

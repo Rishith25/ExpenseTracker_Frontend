@@ -27,9 +27,6 @@ const AnalyticsDetails = () => {
     fetchAccounts(accountsDispatch);
   }, [analyticsDispatch, accountsDispatch]);
 
-  // console.log("Expenses:", expenses);
-  // console.log("Incomes:", incomes);
-
   // Check if expenses and incomes are fetched correctly
   if (!expenses || !incomes) {
     return <div>Loading...</div>;

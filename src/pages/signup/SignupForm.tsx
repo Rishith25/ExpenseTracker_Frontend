@@ -4,6 +4,7 @@ import React, { useState } from "react";
 // import { API_ENDPOINT } from "../../config/constants";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/signup.png";
+import { API_ENDPOINT } from "../../config/constants";
 
 const SignupForm: React.FC = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -16,7 +17,7 @@ const SignupForm: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/api/signup/", {
+      .post(`${API_ENDPOINT}/signup/`, {
         email: userEmail,
         password: userPassword,
         first_name: userFirstName,

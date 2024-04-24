@@ -4,6 +4,7 @@ import axios from "axios";
 import { Fragment, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { API_ENDPOINT } from "../../config/constants";
 
 type Inputs = {
   account_no: number;
@@ -37,7 +38,7 @@ const AccountCreate = () => {
             Authorization: `Token ${token}`,
           },
         };
-        await axios.get("http://localhost:8000/api/account/", config);
+        await axios.get(`${API_ENDPOINT}/account/`, config);
         // console.log(response.data);
       } catch (error) {
         console.error("Error fetching accounts:", error);
