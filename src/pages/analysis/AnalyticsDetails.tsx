@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import LineChart from "../../components/LineChart";
 import BarChart from "../../components/BarChart";
-import PieChart from "../../components/PieChart";
 import {
   useAnalyticsDispatch,
   useAnalyticsState,
@@ -10,7 +9,6 @@ import { fetchAnalytics } from "../../context/analytics/actions";
 import { useAccountsDispatch } from "../../context/accounts/context";
 import { fetchAccounts } from "../../context/accounts/actions";
 import { useTranslation } from "react-i18next";
-import DoughnutChart from "../../components/DoughnutChart";
 
 const AnalyticsDetails = () => {
   const [selectedChart, setSelectedChart] = useState("line");
