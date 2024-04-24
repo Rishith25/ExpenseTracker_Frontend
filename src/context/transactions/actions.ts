@@ -8,7 +8,7 @@ export const fetchTransactions = async (dispatch: any) => {
   try {
     dispatch({ type: "FETCH_TRANSACTIONS_REQUEST" });
 
-    const response = await axios.get(`${API_ENDPOINT}/transaction`, {
+    const response = await axios.get(`${API_ENDPOINT}/account/transaction`, {
       headers: {
         Authorization: `Token ${token}`,
       },

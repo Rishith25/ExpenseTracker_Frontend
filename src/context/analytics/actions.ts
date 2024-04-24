@@ -8,7 +8,7 @@ export const fetchAnalytics = async (dispatch: any) => {
   try {
     dispatch({ type: "FETCH_ANALYTICS_REQUEST" });
 
-    const response = await axios.get(`${API_ENDPOINT}/analytics`, {
+    const response = await axios.get(`${API_ENDPOINT}/account/analytics`, {
       headers: {
         Authorization: `Token ${token}`,
       },

@@ -38,7 +38,7 @@ const AccountCreate = () => {
             Authorization: `Token ${token}`,
           },
         };
-        await axios.get(`${API_ENDPOINT}/account/`, config);
+        await axios.get(`${API_ENDPOINT}/account`, config);
         // console.log(response.data);
       } catch (error) {
         console.error("Error fetching accounts:", error);
@@ -47,15 +47,11 @@ const AccountCreate = () => {
 
     const authToken = localStorage.getItem("authToken");
 
-    const response = await axios.post(
-      `http://127.0.0.1:8000/api/account/create`,
-      data,
-      {
-        headers: {
-          Authorization: `Token ${authToken}`,
-        },
-      }
-    );
+    const response = await axios.post(`${API_ENDPOINT}/account/create`, data, {
+      headers: {
+        Authorization: `Token ${authToken}`,
+      },
+    });
 
     // Then depending on response, I'll either close the modal...
     if (response) {
