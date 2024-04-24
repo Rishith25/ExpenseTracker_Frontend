@@ -41,7 +41,7 @@ export const addTransactions = async (dispatch: any, transactionData: any) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8000/api/account/transaction",
+      `${API_ENDPOINT}/account/transaction`,
       transactionData,
       config
     );
