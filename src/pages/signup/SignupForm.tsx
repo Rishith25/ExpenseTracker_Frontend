@@ -68,7 +68,10 @@ const SignupForm: React.FC = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="text" className="block text-gray-700 mb-2">
+              <label
+                htmlFor="userFirstName"
+                className="block text-gray-700 mb-2"
+              >
                 First Name
               </label>
               <input
@@ -82,7 +85,10 @@ const SignupForm: React.FC = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="text" className="block text-gray-700 mb-2">
+              <label
+                htmlFor="userLastName"
+                className="block text-gray-700 mb-2"
+              >
                 Last Name
               </label>
               <input
@@ -96,7 +102,7 @@ const SignupForm: React.FC = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="tel" className="block text-gray-700 mb-2">
+              <label htmlFor="userPhone" className="block text-gray-700 mb-2">
                 Phone Number
               </label>
               <input
@@ -128,7 +134,7 @@ const SignupForm: React.FC = () => {
                 type="submit"
                 className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition duration-300 ease-in-out"
               >
-                Sign Up
+                Sign-Up
               </button>
             </div>
           </form>

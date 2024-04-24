@@ -5,7 +5,6 @@ const Analytics: React.FC = () => {
   return (
     <>
       <AccountDetails />
-      hell
     </>
   );
 };

@@ -81,7 +81,7 @@ const SigninForm: React.FC = () => {
                 type="submit"
                 className="w-full hover:bg-green-700 bg-green-400 text-white hover:text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-green  transition duration-300 ease-in-out"
               >
-                Sign In
+                Sign-In
               </button>
             </div>
           </form>

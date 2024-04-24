@@ -45,13 +45,7 @@ const AccountCreate = () => {
     }
 
     const authToken = localStorage.getItem("authToken");
-    //   const { name } = data;
 
-    // Next, I'll call the addProject function with two arguments:
-    //`dispatchProjects` and an object with `name` attribute.
-    // As it's an async function, we will await for the response.
-
-    //   const response = await addProject(dispatchProjects, { name });
     const response = await axios.post(
       `http://127.0.0.1:8000/api/account/create`,
       data,
@@ -138,10 +132,10 @@ const AccountCreate = () => {
                       {/* I'll show the error, if it exists.*/}
                       {error && <span>{error}</span>}
                       <input
+                        data-testid="account-no-input"
                         id="Account"
                         type="number"
                         placeholder={t("Enter Account no...")}
-                        autoFocus
                         {...register("account_no", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
                           errors.account_no ? "border-red-500" : ""
@@ -151,10 +145,10 @@ const AccountCreate = () => {
                         <span>{t("This field is required")}</span>
                       )}
                       <input
+                        data-testid="bank-name-input"
                         id="Bank"
                         type="text"
                         placeholder={t("Enter Bank name...")}
-                        autoFocus
                         {...register("bank_name", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
                           errors.bank_name ? "border-red-500" : ""
@@ -164,10 +158,10 @@ const AccountCreate = () => {
                         <span>{t("This field is required")}</span>
                       )}
                       <input
+                        data-testid="balance-input"
                         id="Balance"
                         type="number"
                         placeholder={t("Enter balance...")}
-                        autoFocus
                         {...register("balance", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
                           errors.balance ? "border-red-500" : ""
@@ -185,7 +179,7 @@ const AccountCreate = () => {
                       </button>
                       <button
                         id="CancelBtn"
-                        type="submit"
+                        type="button"
                         onClick={closeModal}
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >

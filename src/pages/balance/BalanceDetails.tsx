@@ -2,7 +2,8 @@
 /* eslint-disable prefer-const */
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {} from "../../index.css";
+import "../../index.css";
+// import "./balance.css";
 import accountbalance from "../../assets/dashboard/wallet.png";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
@@ -84,9 +85,6 @@ const BalanceDetails = () => {
                     {t("Account Balance")}
                   </div>
                 </div>
-                {/* <p className="text-xs text-gray-500 flex items-center">
-                  Higher than last month
-                </p> */}
               </div>
             </div>
 
