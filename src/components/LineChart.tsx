@@ -56,6 +56,32 @@ const LineChart: React.FC<{ chartData: any }> = ({ chartData }) => {
               borderColor: "#4CAF50",
             },
           },
+          scales: {
+            xAxes: {
+              grid: {
+                display: false, // Hide vertical grid lines
+              },
+              ticks: {
+                color: "#777", // X-axis label color
+                font: {
+                  size: 12, // Font size for X-axis labels
+                  weight: "bold", // Font weight for X-axis labels
+                },
+              },
+            },
+            yAxes: {
+              grid: {
+                color: "#f0f0f0", // Color of horizontal grid lines
+              },
+              ticks: {
+                color: "#777", // Y-axis label color
+                font: {
+                  size: 12, // Font size for Y-axis labels
+                  weight: "bold", // Font weight for Y-axis labels
+                },
+              },
+            },
+          },
           maintainAspectRatio: true, // Maintain aspect ratio
           responsive: true, // Make the chart responsive
           aspectRatio: 3, // Set aspect ratio for width and height

@@ -45,13 +45,13 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
           <div className="w-full p-4 px-8 sm:px-16 flex justify-center items-center">
-            <ErrorBoundary>
+            {/* <ErrorBoundary>
               <Suspense
                 fallback={
                   <div className="suspense-loading">{t("Loading...")}</div>
                 }
               ></Suspense>
-            </ErrorBoundary>
+            </ErrorBoundary> */}
             <Analytics />
           </div>
           <div className="w-full px-8 sm:px-16">
