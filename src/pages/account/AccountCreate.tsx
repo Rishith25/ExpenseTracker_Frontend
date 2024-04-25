@@ -47,7 +47,7 @@ const AccountCreate = () => {
 
     const authToken = localStorage.getItem("authToken");
 
-    const response = await axios.post(`${API_ENDPOINT}/account/create`, data, {
+    const response = await axios.post(`${API_ENDPOINT}/account/create/`, data, {
       headers: {
         Authorization: `Token ${authToken}`,
       },
@@ -67,30 +67,31 @@ const AccountCreate = () => {
   return (
     <div>
       <div className="flex items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="w-5 h-5 font-bold"
-          onClick={openModal}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-          />
-        </svg>
-
-        <button
-          id="newProjectBtn"
-          type="button"
-          onClick={openModal}
-          className="ml-2 font-bold"
-        >
-          {t("Open an account")}
-        </button>
+        <div className="flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-5 h-5 font-bold"
+            onClick={openModal}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            ></path>
+          </svg>
+          <button
+            id="newProjectBtn"
+            type="button"
+            onClick={openModal}
+            className="ml-2 font-bold"
+          >
+            {t("Open an account")}
+          </button>
+        </div>
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -104,7 +105,7 @@ const AccountCreate = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 bg-black bg-opacity-25"></div>
           </Transition.Child>
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
@@ -126,8 +127,8 @@ const AccountCreate = () => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                      {/* I'll show the error, if it exists.*/}
                       {error && <span>{error}</span>}
+
                       <input
                         data-testid="account-no-input"
                         id="Account"
@@ -138,9 +139,11 @@ const AccountCreate = () => {
                           errors.account_no ? "border-red-500" : ""
                         }`}
                       />
+
                       {errors.account_no && (
                         <span>{t("This field is required")}</span>
                       )}
+
                       <input
                         data-testid="bank-name-input"
                         id="Bank"
@@ -151,9 +154,11 @@ const AccountCreate = () => {
                           errors.bank_name ? "border-red-500" : ""
                         }`}
                       />
+
                       {errors.bank_name && (
                         <span>{t("This field is required")}</span>
                       )}
+
                       <input
                         data-testid="balance-input"
                         id="Balance"
@@ -164,9 +169,11 @@ const AccountCreate = () => {
                           errors.balance ? "border-red-500" : ""
                         }`}
                       />
+
                       {errors.balance && (
                         <span>{t("This field is required")}</span>
                       )}
+
                       <button
                         id="submitNewProjectBtn"
                         type="submit"
@@ -174,6 +181,7 @@ const AccountCreate = () => {
                       >
                         {t("Submit")}
                       </button>
+
                       <button
                         id="CancelBtn"
                         type="button"
