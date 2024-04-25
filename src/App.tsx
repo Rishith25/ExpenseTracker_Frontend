@@ -11,13 +11,13 @@ const App = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={`${theme === "dark" ? "dark" : ""}`}>
-      <TransactionsProvider>
-        <AnalyticsProvider>
-          <AccountsProvider>
+      <AccountsProvider>
+        <TransactionsProvider>
+          <AnalyticsProvider>
             <RouterProvider router={router} />
-          </AccountsProvider>
-        </AnalyticsProvider>
-      </TransactionsProvider>
+          </AnalyticsProvider>
+        </TransactionsProvider>
+      </AccountsProvider>
     </div>
   );
 };
