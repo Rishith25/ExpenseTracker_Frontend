@@ -47,7 +47,7 @@ const AccountCreate = () => {
 
     const authToken = localStorage.getItem("authToken");
 
-    const response = await axios.post(`${API_ENDPOINT}/account/create/`, data, {
+    const response = await axios.post(`${API_ENDPOINT}/account`, data, {
       headers: {
         Authorization: `Token ${authToken}`,
       },
@@ -130,7 +130,6 @@ const AccountCreate = () => {
                       {error && <span>{error}</span>}
 
                       <input
-                        data-testid="account-no-input"
                         id="Account"
                         type="number"
                         placeholder={t("Enter Account no...")}
@@ -145,7 +144,6 @@ const AccountCreate = () => {
                       )}
 
                       <input
-                        data-testid="bank-name-input"
                         id="Bank"
                         type="text"
                         placeholder={t("Enter Bank name...")}
@@ -160,7 +158,6 @@ const AccountCreate = () => {
                       )}
 
                       <input
-                        data-testid="balance-input"
                         id="Balance"
                         type="number"
                         placeholder={t("Enter balance...")}
