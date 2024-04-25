@@ -50,10 +50,9 @@ const Dashboard: React.FC = () => {
                 fallback={
                   <div className="suspense-loading">{t("Loading...")}</div>
                 }
-              >
-                <Analytics />
-              </Suspense>
+              ></Suspense>
             </ErrorBoundary>
+            <Analytics />
           </div>
           <div className="w-full px-8 sm:px-16">
             <ErrorBoundary>
