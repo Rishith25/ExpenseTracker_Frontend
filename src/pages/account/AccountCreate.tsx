@@ -47,7 +47,7 @@ const AccountCreate = () => {
 
     const authToken = localStorage.getItem("authToken");
 
-    const response = await axios.post(`${API_ENDPOINT}/account`, data, {
+    const response = await axios.post(`${API_ENDPOINT}/account/create`, data, {
       headers: {
         Authorization: `Token ${authToken}`,
       },
