@@ -19,6 +19,7 @@ const AnalyticsDetails = () => {
   const { expenses, incomes } = analyticsState || {};
 
   const accountsDispatch = useAccountsDispatch();
+  console.log("This is branch");
 
   useEffect(() => {
     fetchAnalytics(analyticsDispatch)
