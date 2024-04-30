@@ -24,11 +24,28 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test
+      - name: Unit Test
         run: npm test
 
-    #   - name: Deploy to production
-    #     if: github.ref == 'refs/heads/main' # Only deploy on main branch
-    #     run: |
-    #       # Here you would put your deployment script/command
-    #       # Example: Deploy to AWS S3, Firebase Hosting, Netlify, etc.
+      - name: Integration Test
+        run: npm run cypress:test
+
+      - name: Slack Notify
+        uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status}}
+          steps: ${{toJson(steps)}}
+          channel: "#expense-tracker-frontend"
+        if: always()
+
+      # Notify on Slack for success
+      - name: Success Notify
+        if: success()
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Commit has been successful✅"}' ${{secrets.SLACK_WEBHOOK_URL}}
+
+      # Notify on Slack for failure
+      - name: Failure Notify
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"⚠Error: The pipeline has failed❗"}' ${{secrets.SLACK_WEBHOOK_URL}}
