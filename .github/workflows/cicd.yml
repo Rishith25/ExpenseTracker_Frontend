@@ -50,16 +50,16 @@ jobs:
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{"text":"⚠Error: The pipeline has failed❗"}' ${{secrets.SLACK_WEBHOOK_URL}}
 
-  deply-to-netlify:
-    runs-on: ubuntu-latest
-    needs: build
+  # deply-to-netlify:
+  #   runs-on: ubuntu-latest
+  #   needs: build
 
-    steps:
-      - name: Deploy to Netlify
-        uses: South-Paw/action-netlify-deploy@v1.2.0
-        with:
-          github-token: ${{secrets.TOKEN_GITHUB}}
-          netlify-auth-token: ${{secrets.NETLIFY_AUTH_TOKEN}}
-          netlify-site-id: ${{secrets.NETLIFY_SITE_ID}}
-          build-dir: "./dist"
-          comment-on-commit: true
+  #   steps:
+  #     - name: Deploy to Netlify
+  #       uses: South-Paw/action-netlify-deploy@v1.2.0
+  #       with:
+  #         github-token: ${{secrets.TOKEN_GITHUB}}
+  #         netlify-auth-token: ${{secrets.NETLIFY_AUTH_TOKEN}}
+  #         netlify-site-id: ${{secrets.NETLIFY_SITE_ID}}
+  #         build-dir: "./dist"
+  #         comment-on-commit: true
