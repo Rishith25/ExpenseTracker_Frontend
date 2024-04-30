@@ -17,6 +17,7 @@ const BalanceDetails = () => {
   const { t } = useTranslation();
 
   console.log("This is main");
+  console.log("This is branch");
   const handleFlip = () => {
     if (!isAnimating) {
       setIsFlipped(!isFlipped);
