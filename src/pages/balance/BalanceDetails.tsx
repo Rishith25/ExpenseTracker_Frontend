@@ -16,6 +16,7 @@ const BalanceDetails = () => {
   const [isAnimating, setisAnimating] = useState(false);
   const { t } = useTranslation();
 
+  console.log("This is main");
   const handleFlip = () => {
     if (!isAnimating) {
       setIsFlipped(!isFlipped);
