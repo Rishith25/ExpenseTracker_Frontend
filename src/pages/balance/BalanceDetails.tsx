@@ -16,6 +16,7 @@ const BalanceDetails = () => {
   const [isAnimating, setisAnimating] = useState(false);
   const { t } = useTranslation();
 
+  console.log("This is branch");
   const handleFlip = () => {
     if (!isAnimating) {
       setIsFlipped(!isFlipped);
