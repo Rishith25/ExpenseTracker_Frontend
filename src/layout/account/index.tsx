@@ -10,7 +10,7 @@ const AccountLayout = () => {
           <div className="h-full">
             <Appbar />
           </div>
-          <main className="flex flex-grow">
+          <main className="flex flex-grow overflow-y-auto">
             <div className="py-6 px-2 w-full">
               <Outlet />
             </div>

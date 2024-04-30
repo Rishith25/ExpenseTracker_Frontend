@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/pages/signup/SignupForm.tsx
 import axios from "axios";
 import React, { useState } from "react";
@@ -12,6 +13,7 @@ const SignupForm: React.FC = () => {
   const [userFirstName, setUserFirstName] = useState("");
   const [userLastName, setUserLastName] = useState("");
   const [userPhone, setUserPhone] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -31,8 +33,9 @@ const SignupForm: React.FC = () => {
         localStorage.setItem("userData", JSON.stringify(response.data.user));
         return navigate("/home/dashboard");
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error(error.response.data.error);
+        setError(`Error while creating ${error}`);
       });
   };
   return (
@@ -130,6 +133,9 @@ const SignupForm: React.FC = () => {
                 className="w-full border rounded-md py-2 px-3 bg-gray-200 focus:outline-none focus:shadow-outline-gray"
               />
             </div>
+            {error && (
+              <div className="text-red-500 font-bold text-sm mt-2">{error}</div>
+            )}
             <div>
               <button
                 type="submit"

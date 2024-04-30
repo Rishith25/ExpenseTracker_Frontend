@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +9,7 @@ import { API_ENDPOINT } from "../../config/constants";
 const SigninForm: React.FC = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -25,8 +27,9 @@ const SigninForm: React.FC = () => {
         localStorage.setItem("userData", JSON.stringify(response.data.user));
         return navigate("/home/dashboard");
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error(error.response.data.error);
+        setError("Invalid email or password");
       });
   };
 
@@ -77,6 +80,9 @@ const SigninForm: React.FC = () => {
                 className="w-full border rounded-md py-2 px-3 bg-gray-200 focus:outline-none focus:shadow-outline-gray"
               />
             </div>
+            {error && (
+              <div className="text-red-500 font-bold text-sm mt-2">{error}</div>
+            )}
             <div>
               <button
                 type="submit"

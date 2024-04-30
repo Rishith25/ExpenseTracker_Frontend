@@ -5,6 +5,7 @@ import { ThemeContext } from "./context/theme";
 import { AccountsProvider } from "./context/accounts/context";
 import { TransactionsProvider } from "./context/transactions/context";
 import { AnalyticsProvider } from "./context/analytics/context";
+import { ToastContainer } from "react-toastify";
 import "./i18n";
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <TransactionsProvider>
           <AnalyticsProvider>
             <RouterProvider router={router} />
+            <ToastContainer />
           </AnalyticsProvider>
         </TransactionsProvider>
       </AccountsProvider>

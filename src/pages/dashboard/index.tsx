@@ -12,71 +12,74 @@ const Dashboard: React.FC = () => {
   const { t } = useTranslation();
   return (
     <>
-      <h2 className="text-2xl font-semibold text-gray-800 px-4 sm:px-10">
-        {t("Dashboard")}
-      </h2>
-      <div className="flex justify-end px-4 sm:px-10">
-        <AccountCreate />
-      </div>
-      <div className="flex flex-wrap">
-        <div className="w-full sm:w-2/3">
-          <div className="bg-white flex flex-wrap">
-            <div className="w-full md:w-1/2 flex justify-center items-center">
-              <ErrorBoundary>
-                <Suspense
-                  fallback={
-                    <div className="suspense-loading">{t("Loading...")}</div>
-                  }
-                >
-                  <Balance />
-                </Suspense>
-              </ErrorBoundary>
-            </div>
-            <div className="w-full md:w-1/2 flex justify-center items-center">
-              <ErrorBoundary>
-                <Suspense
-                  fallback={
-                    <div className="suspense-loading">{t("Loading...")}</div>
-                  }
-                >
-                  <Expense />
-                </Suspense>
-              </ErrorBoundary>
-            </div>
-          </div>
-          <div className="w-full p-4 px-8 sm:px-16 flex justify-center items-center">
-            {/* <ErrorBoundary>
-              <Suspense
-                fallback={
-                  <div className="suspense-loading">{t("Loading...")}</div>
-                }
-              ></Suspense>
-            </ErrorBoundary> */}
-            <Analytics />
-          </div>
-          <div className="w-full px-8 sm:px-16">
-            <ErrorBoundary>
-              <Suspense
-                fallback={
-                  <div className="suspense-loading">{t("Loading...")}</div>
-                }
-              >
-                <LastPaymentDetails />
-              </Suspense>
-            </ErrorBoundary>
-          </div>
+      <div className="px-4 sm:px-10">
+        <h2 className="text-2xl font-semibold text-gray-800">
+          {t("Dashboard")}
+        </h2>
+        <div className="flex justify-end mt-4">
+          <AccountCreate />
         </div>
-        <div className="w-full sm:w-1/3">
-          <div className="w-full">
-            <ErrorBoundary>
-              <Suspense
-                fallback={
-                  <div className="suspense-loading">{t("Loading...")}</div>
-                }
-              >
-                <DashboardExpenses />
-              </Suspense>
-            </ErrorBoundary>
+        <div className="flex flex-wrap mt-8">
+          <div className="w-full sm:w-2/3">
+            <div className="bg-white flex flex-wrap">
+              <div className="w-full md:w-1/2 flex justify-center items-center">
+                <ErrorBoundary>
+                  <Suspense
+                    fallback={
+                      <div className="suspense-loading">{t("Loading...")}</div>
+                    }
+                  >
+                    <Balance />
+                  </Suspense>
+                </ErrorBoundary>
+              </div>
+              <div className="w-full md:w-1/2 flex justify-center items-center">
+                <ErrorBoundary>
+                  <Suspense
+                    fallback={
+                      <div className="suspense-loading">{t("Loading...")}</div>
+                    }
+                  >
+                    <Expense />
+                  </Suspense>
+                </ErrorBoundary>
+              </div>
+            </div>
+            <div className="w-full mt-8 sm:mt-0 px-4 sm:px-0">
+              <ErrorBoundary>
+                <Suspense
+                  fallback={
+                    <div className="suspense-loading">{t("Loading...")}</div>
+                  }
+                >
+                  <Analytics />
+                </Suspense>
+              </ErrorBoundary>
+            </div>
+            <div className="w-full mt-8 px-4 sm:px-0">
+              <ErrorBoundary>
+                <Suspense
+                  fallback={
+                    <div className="suspense-loading">{t("Loading...")}</div>
+                  }
+                >
+                  <LastPaymentDetails />
+                </Suspense>
+              </ErrorBoundary>
+            </div>
+          </div>
+          <div className="w-full sm:w-1/3 mt-8 sm:mt-0">
+            <div className="w-full">
+              <ErrorBoundary>
+                <Suspense
+                  fallback={
+                    <div className="suspense-loading">{t("Loading...")}</div>
+                  }
+                >
+                  <DashboardExpenses />
+                </Suspense>
+              </ErrorBoundary>
+            </div>
           </div>
         </div>
       </div>

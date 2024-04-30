@@ -85,7 +85,7 @@ const AnalyticsDetails = () => {
     <div className="w-full rounded-lg p-4">
       <div className="flex justify-center items-center mb-2">
         <button
-          className={`mr-2 px-3 py-1 rounded ${
+          className={`mr-2 px-3 py-1 rounded-3xl ${
             selectedChart === "line" ? "bg-blue-500 text-white" : "bg-gray-200"
           }`}
           onClick={() => setSelectedChart("line")}
@@ -93,7 +93,7 @@ const AnalyticsDetails = () => {
           Line Chart
         </button>
         <button
-          className={`px-3 py-1 rounded ${
+          className={`px-3 py-1 rounded-3xl ${
             selectedChart === "bar" ? "bg-blue-500 text-white" : "bg-gray-200"
           }`}
           onClick={() => setSelectedChart("bar")}

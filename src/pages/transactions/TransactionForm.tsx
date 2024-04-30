@@ -12,6 +12,8 @@ import {
   fetchTransactions,
 } from "../../context/transactions/actions";
 import { useTransactionsDispatch } from "../../context/transactions/context";
+import { toast } from "react-toastify";
+import "react-toastify/ReactToastify.css";
 
 type TransactionInputs = {
   account_no: number;
@@ -70,9 +72,11 @@ const TransactionForm: React.FC<TransactionFormProps> = ({
       });
       fetchTransactions(transactionsDispatch);
       reset();
+      toast.success("Transaction Created successfully");
       onClose(); // Close the form
     } catch (error) {
       console.error("Error adding transaction:", error);
+      toast.success("Transaction Created Failed");
     }
   };
 

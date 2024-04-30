@@ -48,6 +48,24 @@ const router = createBrowserRouter([
       {
         path: "transaction",
         element: <TransactionDetails />,
+        // children: [
+        //   {
+        //     index: true,
+        //     element: <TransactionDetails/>
+        //   },
+        //   {
+        //     path: ':transactionID',
+        //     children: [
+        //       {
+        //         path: "edit",
+        //         element: (
+        //           <TransactionEditForm/>
+        //         )
+        //       }
+
+        //     ]
+        //   }
+        // ],
       },
       {
         path: "analytics",

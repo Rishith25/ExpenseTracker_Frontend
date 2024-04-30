@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "../../index.css";
 import accountbalance from "../../assets/dashboard/wallet.png";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
-import { API_ENDPOINT } from "../../config/constants";
+import { fetchAccounts } from "../../context/accounts/actions";
+import {
+  useAccountsDispatch,
+  useAccountsState,
+} from "../../context/accounts/context";
 
 const BalanceDetails = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -20,25 +23,13 @@ const BalanceDetails = () => {
     }
   };
 
-  const [accounts, setAccounts] = useState([]);
+  const accountsState: any = useAccountsState();
+  const { accounts } = accountsState || {};
+  const accountsDispatch = useAccountsDispatch();
 
   useEffect(() => {
-    async function fetchAccounts() {
-      try {
-        const token = localStorage.getItem("authToken");
-        const config = {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        };
-        const response = await axios.get(`${API_ENDPOINT}/account/`, config);
-        setAccounts(response.data);
-      } catch (error) {
-        console.error("Error fetching accounts:", error);
-      }
-    }
-    fetchAccounts();
-  }, []);
+    fetchAccounts(accountsDispatch);
+  }, [accountsDispatch]);
 
   function calculateTotalBalance(accounts: any) {
     let totalBalance = 0;

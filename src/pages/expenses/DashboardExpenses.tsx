@@ -77,14 +77,14 @@ const DashboardExpenses: React.FC = () => {
 
   return (
     <div className="flex flex-col justify-between max-w-3xl mx-auto mt-1 shadow-md rounded-2xl overflow-hidden">
-      <div className="overflow-x-auto flex-grow">
+      <div className="overflow-x-auto">
         <h2 className="text-lg font-bold bg-blue-500 text-white py-2 px-4 rounded-t-lg">
           {t("Latest Transactions")}
         </h2>
-        <table className="w-full whitespace-nowrap mb-2">
+        <table className="w-full whitespace-nowrap ">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-1 py-1">Account Number</th>
+              <th className=" py-1">Account Number</th>
               <th className="px-1 py-1">Amount</th>
               <th className="px-1 py-1">Category</th>
             </tr>
@@ -97,7 +97,7 @@ const DashboardExpenses: React.FC = () => {
               <table className="w-full whitespace-nowrap">
                 <tbody>
                   {transactions.map((transaction) => (
-                    <tr key={transaction.id} className="bg-white">
+                    <tr key={transaction.id} className="bg-white mb-2">
                       <td className="px-4 py-2">{transaction.account_no}</td>
                       <td className="px-4 py-2">₹{transaction.amount}</td>
                       <td className="px-4 py-2">{transaction.category}</td>
