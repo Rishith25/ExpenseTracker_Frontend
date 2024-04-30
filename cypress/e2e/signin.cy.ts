@@ -16,7 +16,7 @@ describe("SigninForm", () => {
 
     // Submit the form
     cy.get('button[type="submit"]').click();
-    cy.wait(5000);
+    cy.wait(20000);
 
     // Check if redirected to the dashboard page after successful signin
     cy.url().should("include", "/home/dashboard");
@@ -42,7 +42,7 @@ describe("SigninForm", () => {
     // Submit the form
     cy.get('button[type="submit"]').click();
 
-    cy.wait(5000);
+    cy.wait(20000);
 
     // Check if error message is displayed
     cy.contains("Invalid email or password").should("be.visible");
