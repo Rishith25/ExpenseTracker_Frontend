@@ -23,6 +23,7 @@ const AccountDetails: React.FC = () => {
   const { t } = useTranslation();
 
   console.log("This is Main branch");
+  console.log("This is branch commit");
 
   useEffect(() => {
     fetchAccounts(accountsDispatch);
