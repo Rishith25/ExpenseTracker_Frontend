@@ -22,6 +22,8 @@ const AccountDetails: React.FC = () => {
   const { accounts, isLoading } = accountsState || {};
   const { t } = useTranslation();
 
+  console.log("This is Main branch");
+
   useEffect(() => {
     fetchAccounts(accountsDispatch);
   }, [accountsDispatch]);
