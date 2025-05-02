@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// src/pages/signup/SignupForm.tsx
 import axios from "axios";
 import React, { useState } from "react";
-// import { API_ENDPOINT } from "../../config/constants";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/signup.png";
 import { API_ENDPOINT } from "../../config/constants";

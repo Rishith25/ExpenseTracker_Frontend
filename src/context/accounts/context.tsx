@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { createContext, useContext, useReducer } from "react";
 import {
   reducer,

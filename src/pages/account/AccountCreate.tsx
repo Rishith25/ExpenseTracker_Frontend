@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Dialog, Transition } from "@headlessui/react";
 import axios from "axios";
 import { Fragment, useState } from "react";
@@ -24,10 +22,6 @@ const AccountCreate = () => {
   const { t } = useTranslation();
 
   const accountsDispatch = useAccountsDispatch();
-
-  // useEffect(() => {
-  //   fetchAccounts(accountsDispatch);
-  // }, [accountsDispatch]);
 
   const {
     register,

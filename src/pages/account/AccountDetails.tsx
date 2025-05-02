@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect } from "react";
 import {
@@ -14,7 +13,6 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AccountEditForm from "./AccountEditCreate";
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 const AccountDetails: React.FC = () => {
   const accountsState: any = useAccountsState();
   const accountsDispatch = useAccountsDispatch();

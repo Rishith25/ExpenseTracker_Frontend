@@ -8,7 +8,7 @@
 
 describe("SigninForm", () => {
   it("should sign in a user successfully", () => {
-    cy.visit("https://expense-tracker-rishith.netlify.app/signin");
+    cy.visit("http://localhost:5173/signin");
 
     // Fill in the email and password fields
     cy.get('input[name="email"]').type("admin@gmail.com");
@@ -33,7 +33,7 @@ describe("SigninForm", () => {
   });
 
   it("should display an error message for invalid credentials", () => {
-    cy.visit("https://expense-tracker-rishith.netlify.app/signin");
+    cy.visit("http://localhost:5173/signin");
 
     // Fill in the email and password fields with invalid credentials
     cy.get('input[name="email"]').type("invalid@example.com");

@@ -84,9 +84,9 @@ const DashboardExpenses: React.FC = () => {
         <table className="w-full whitespace-nowrap ">
           <thead className="bg-gray-100">
             <tr>
-              <th className=" py-1">Account Number</th>
-              <th className="px-1 py-1">Amount</th>
-              <th className="px-1 py-1">Category</th>
+              <th className=" py-1">{t("Account Number")}</th>
+              <th className="px-1 py-1">{t("Amount")}</th>
+              <th className="px-1 py-1">{t("Category")}</th>
             </tr>
           </thead>
         </table>

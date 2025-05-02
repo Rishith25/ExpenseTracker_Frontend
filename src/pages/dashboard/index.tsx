@@ -45,7 +45,7 @@ const Dashboard: React.FC = () => {
                 </ErrorBoundary>
               </div>
             </div>
-            <div className="w-full mt-8 sm:mt-0 px-4 sm:px-0">
+            <div className="w-full mt-8 sm:mt-0 px-6 sm:px-0">
               <ErrorBoundary>
                 <Suspense
                   fallback={
